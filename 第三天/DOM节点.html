@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM节点</title>
+</head>
+<body>
+<!--<div id="div1"></div>-->
+<!--<div id="div2"></div>-->
+<!--<div></div>-->
+
+<!--<h3>hello jQuery</h3>-->
+<!--<h3>hello jQuery</h3>-->
+<!--<h3>hello jQuery</h3>-->
+<!--<p id="op">qqnn</p>-->
+
+
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    //$(htmlStr) 参数 是html字符串  才会创建节点
+
+    $(function () {
+        var $h3 = "<h3>hello world</h3>";
+        var $h4 = "<h4>hello</h4>";
+//        $("<h3>ppp</h3>");//创建元素节点  jq对象  (要想创建一个节点就要拼接一个字符串）
+////        $("body")//通过标签选择器 获取body元素 并包装成jq对象
+////        $(document.body)//将原生js对象body转化为jq对象
+//
+//        //append添加页面     在什么里面添加
+//        $("body").append($h3[0]);//原生
+////        $("body").append($h4);//jq的
+//        $("body").append("<h3>pppp</h3>")//html 字符串
+//appendTo 添加到  将元素添加到指定的容器   添加到底部
+//    ???    $h3.appendTo($("body"));//截取对象 容器
+//        $h4.appendTo($("body")[0]);//js对象容器
+//        $h4.appendTo($("body"));//选择器
+//        //prepend 添加到最底部
+        $("div").prepend($h4);
+        //添加到 prependTo添加到
+//  ????      $h3.prependTo("div");
+//        $h3.prependTo($("div"));
+        //外部添加 将$h3添加到指定元素后面
+//        $("#div").insertAfter($h3);
+//        $("#div2").insertAfter($("div1"));//写成字符串他会自己创建原生的js
+        //将h3插入到div1的后面
+//    $h3.insertAfter("#div2");
+        //将添加到后面
+//        $("#div2").before($h3);
+//        $h3.insertBefore("#div1");
+        // wrap 包裹节点
+//        $("h3").wrap("<div class=wrap></div>")//将h3包裹在div里
+        //wrapAll包裹所有
+        //wrapInner包裹匹配的元素内容
+//        $("h3").wrapInner("<i></i>");
+//        //将原本的h3 放在i标签里
+//        $("h3").wrapInner("<div><i>ppppnnnn</i></div>")//ppppnnnn  <h3>hello jQuery</h3>都包裹在i标签里
+//
+//        //替换
+//        //将原有的替换掉
+//        $("<p>hello nihao zhufeng</p>").replaceAll($("h3"))
+//        $("p").replaceAll($("h3"))
+//        $("h3").replaceWith("<p>hello jquery</p>");
+        //复制节点
+//        $(body).append($("#op").clone())//加 clone（true）就把事件传递过去
+//        $("#op").click(function(){
+//            console.log(123);
+//        })
+        //移除标签
+//        $("#op").remove();//移除谁就调用谁  【移除后还能返回页面】移除后在返回的不能触发
+//        $("#op").detach();//也是移除【移除后还能返回页面】移除后在返回的还能触发
+        setTimeout(function () {
+            $("#op").remove();
+//            var $old = detach;
+
+        }, 2000);
+        setTimeout(function () {
+            $("#op").append();
+
+        }, 4000);
+
+        //清空节点
+        setTimeout(function () {
+            $("#op").empty()
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件委托-事件绑定</title>
+</head>
+<body>
+<ul id="list">
+    <li>11</li>
+    <li>22</li>
+    <li>33</li>
+</ul>
+<script>
+    var list=document.getElementById("list");
+    var lis=list.getElementsByTagName("li");
+    //利用事件委托 解决 事件动态绑定问题 预留事件(利用冒泡传播)
+    list.onclick=function(e){
+        e=e||window.event;
+        var tar= e.target|| e.scrElement;
+        if(tar.tarName==="LI"){
+            console.log(tar.innerHTML);
+        }
+    };
+
+
+    for(var i=0;i<lis.length;i++){
+    lis[i]=onclick=function(){
+        console.log(this.innerHTML);
+    }
+    }
+    setTimeout(function(){
+        var str="";
+        for(var i=4;i<7;i++){
+            str+="<li>"+i+str.replace(6)+"</li>"
+
+        }
+        list.innerHTML+=str;
+    },2000);
+    /*让原有的和后添加的都有点击事件
+    首先绑定list元素
+    先绑定一个事件源
+    然后再判断
+    * */
+</script>
+</body>
+</html>

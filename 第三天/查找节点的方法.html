@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>查找节点的方法</title>
+</head>
+<body>
+<ul id="ull">
+    <li>11</li>
+    <li>22</li>
+    <li>33</li>
+    <li>44</li>
+    <li>55</li>
+    <!--<li>66</li>-->
+</ul>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    //find  children   filter
+    $(function(){
+        console.log($("#ull").find("li"));//find是在指定的容器中查找后代元素
+        console.log($("#ull").children("li"));//children获取指定容器中所有子元素
+        console.log($("#ull>li").filter("li"));//filter元素集合中过滤
+        console.log($("#ull>li").filter(":contains(3)"));//($("#ull>li")中过滤
+
+    })
+</script>
+</body>
+</html>

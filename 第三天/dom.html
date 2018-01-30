@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 130px;
+            margin: 30px auto;
+        }
+
+        #list {
+            width: 170px;
+            border: 1px solid black;
+            border-top: none;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul a {
+            float: right;
+            display: none;
+            margin-left: 10px;
+            width: 15px;
+            height: 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50%;
+            color: #000000;
+            line-height: 15px;
+            background: #ababab;
+        }
+
+        #list li:hover a {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    搜索：<input type="text" id="ipn"/>
+    <ul id="list">
+        <li><input type="checkbox">潘<a href="javascript:">X</a></li>
+        <li><input type="checkbox">王<a href="javascript:">X</a></li>
+        <li><input type="checkbox">李<a href="javascript:">X</a></li>
+        <li><input type="checkbox">宋<a href="javascript:">X</a></li>
+        <li><input type="checkbox">闫<a href="javascript:">X</a></li>
+        <li><input type="checkbox">张<a href="javascript:">X</a></li>
+    </ul>
+    <button id="btn">清除列表</button>
+    <button id="btn1">撤回删除</button>
+</div>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#ipn").on("keydown", function (e) {
+            if (e.keyCode === 13) {
+                var val = $(this).val();
+                if (/^\s$/.test(val)) return;
+                var $lis = $("<li><input type='checkbox'/>" + val + "<a href='javascript:'>X</a>  </li>");
+                $lis.appendTo("#list");
+                $(this).val("");
+                bingRemov()
+            }
+        });
+        //清空
+        function bingRemov() {
+            $("#list a").click(function () {
+                $(this).parent().remove();
+            });
+        }
+        bingRemov();
+        //单个删除
+        $('#btn').click(function () {
+            $('#list input:checked').parent().remove();
+        });
+//        $("#btn").click(function () {
+//                $("li").parent().remove()
+//            })
+
+    })
+</script>
+</body>
+</html>

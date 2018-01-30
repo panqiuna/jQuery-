@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>date</title>
+</head>
+<body>
+<button id="btn">请求数据</button>
+<input type="text" id="inp"/>
+<script type="text/javascript" src="../../../闭包文件/jquery.js"></script>
+
+<script>
+
+    $(function () {
+        var val = $("#inp").val;
+//        $(/^\s*$/).test(val) ?????????
+//        get 请求
+//        $.get("data.json",{name:"zhufeng"},function(res){
+//            console.log(res);
+//        });
+//        post请求
+//        $.post("data.text",{name:"zhufeng"},function(res){
+//            console.log(res);
+//        });
+//        json请求
+        $.getJSON("data.json", {name: "zhufeng"}, function (res) {
+            console.log(res);
+        });
+//        请求外部脚本[请求外部的页面   只有请求后才能显示]
+        $("#btn").click(function () {
+            $.getScript("index.js", function (res) {
+                console.log(res);
+            });
+        });
+
+
+        $("#btn").click(function () {
+            $.ajax({
+                //get请求
+//                url:"data.json",
+//                type:"get",//post
+////                dataType:"json",
+                //请求成功时执行的函数
+                beforeSend: function (xhr, options) {//请求成功时执行
+                    console.log(arguments);
+                },
+
+                url: "data.json",//请求地址；
+                type: "GET",//请求方式
+                async: "true",//是否是异步（默认是异步）
+                data: {//get把数据放在请求体里不安全容易被ul、、
+                    url: "https://ss1.bdstatic.com/",
+                    id: 1,
+                    name: "zhufeng"
+                },
+//                dataType: "json",//请求回来的数据 解析方式
+                dataType: "jsonp",//跨域请求
+                data: {
+                    wd: val,
+                    json: 1
+                },
+                success: function (res) {
+                    console.log(res);//请求成功的回调函数  不需要作判断
+                },
+                //ajax对象  错误类型 错误信息 （只有请求错误的是时候才会执行这个函数）
+                error: function (xhr, err, errText) {//请求错误回调
+
+                },
+                complete: function () {//请求结束后 执行 不管成功与失败都会请求
+
+                }
+            });
+//            str = "";
+//            str += "<li>+val+</li>"
+        })
+    });
+    //    var xhr=new XMLHttpRequest();
+    //    xhr.open("get","data.json",true);
+    //    xhr.onreadystatechange=function(){
+    //        if(this.readyState===4&&/^\d{2}&/.test(this.status===200)){
+    //            console.log(this.responseText);
+    //        }
+    //    };
+    //    xhr.send();
+</script>
+</body>
+</html>

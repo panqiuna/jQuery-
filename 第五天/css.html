@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css设置</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            border:2px solid black;
+            padding: 10px;
+            margin: 20px;
+            background: aqua;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">add</button>
+<div id="div1"></div>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    //批量设置以对象形式设置
+    $(function(){
+//        $("#div1").css({
+//            width:100,
+//            height:100,
+//            background:"pink"
+//        });
+//        $("#btn").click(function(){
+//        $("#div1").css("width",function(a,old){//old原有的值  a参数
+//
+//                old=parseFloat(old);
+//                return old+=100;//累积  （在原有的基础加上100）
+//        });
+//            $("#btn").click(function(n,old){
+//                width:function wiDth (n,old){
+//                    old=parseFloat(old);
+//                    return old+=100;//累积  （在原有的基础加上100）
+//                }
+//                height:function (n,old){
+//                    cur=parseFloat(cur)
+//                    return old-100
+//                }
+//            })
+//            /?????
+            //宽高的设置
+//            console.log($("#div1").css("heigth"));
+//            console.log($("#div1").heigth());
+//            $("#div1").heigth(function(n,cur){//通过形参可以得到当前高度函数返回值去设置此时的高度
+//                console.log(cur);//当前高度
+//                return cur+=100;//累积的高
+//            })
+//            console.log($("#div").css("width"));
+//            console.log($("#div1").width());
+//            $("#div1").width(200);//设置宽度
+//            $("#div1").width(function(n,cur){//通过形参可以得到当前宽度函数返回值去设置此时的宽度
+//                console.log(cur);//当前宽度
+//                return cur+=100;//累积的宽
+//            })
+
+//滚动条操作
+//            $("window").scrollTop();//获取垂直滚动条 滚出的高度
+//            $("window").scrollTop(400)//设置垂直滚动条 高度
+//            $("window").scrollLeft();//获取滚动条横向滚动  滚出的距离
+//            $("window").scrollLeft(400);//设置横向滚动条 滚出的距离
+//            console.log($("#div1").width);//内容宽度
+//            console.log($("#div1").innerHeight());//内容高度度加上下填充
+//            console.log($("#div1").innerWidth());//内容宽度加左右填充
+            console.log($("#div1").outerWidth());//innerWidth+左右border
+            console.log($("#div1").outerWidth(true));//包含外边距
+            console.log($("#div1").height());//内容高度
+            console.log($("#div1").innerHeight());//内容高度+上下填充
+            console.log($("#div1").outerHeight());//innerHeight+上下border
+            console.log($("#div1").outerHeight(true));//包含外边距
+
+//        })
+    })
+</script>
+</body>
+</html>

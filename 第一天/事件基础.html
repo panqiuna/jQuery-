@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件基础</title>
+</head>
+<body>
+<button id="btn">触发</button>
+<input type="text" id="ipn"/>
+输入框：<input type="text" id="enter"/>
+<input type="text" placeholder="请输入内容" id="write"/>
+
+<script>
+    /*常用事件：onclick（点击） onmouseover（滑入）  onmouseotu（滑出） onmouseeter（滑入） onmouseleave
+     ondblclick(浏览器被重置大小时执行 兼容性在IE8 或IE8以下都不支持) onresize(浏览器被重置大小时执行) onmousedown(按下鼠标按钮执行)  onmouseup(鼠标按键被松开时执行) onmousemove（鼠标滑过时触发） onchange改变时  oninput输入时触发(表单事件)
+     onkeydown(表单事件) 按下键盘键就会触发事件  onkeyup按下键盘时抬起时才触发 onload引入图片都加载完之后才会触发
+     onerror（数据加载期间发生错误时触发）  onscroll只要滑动滚轮，滚动条事件 onmousewheel只有移动滚轮时才会触发 wheelDelta判断滚轮的方向（向上滑120 ，向下滑-120）
+     （onmousewheel wheelDelta火狐没有这个事件）onfocus表单事件（获取焦点时就会触发）onblur （离开焦点时就会触发）
+     //////////
+     DOMO级事件
+     事件 一种行为 根据相应事件行为 触发相应 方法
+     事件类型
+     事件处理器（事件处理（监听）函数）
+     函数传递的参数是事件对象
+
+
+     * */
+
+
+    btn.onclick = function () {
+        //监听onclick之后再触发
+    };
+
+
+    window.onmousewheel = function (e) {//火狐不兼容
+        console.log(e);//浏览器会默认给它添加事件
+
+        console.log(e.wheelDelta);//判断滚轮方向
+    };
+
+
+    //    btn.onclick=function (){/
+    //        alert(123)
+    //    };
+    enter.onkeydown = function (e) {//e代表的是事件[第一个形参是事件对象，信息]
+        if (e.onkeydown === 13) {
+            var val = this.value;
+            if (e.value) {
+                text.innerHTML = this.value;
+            }
+        }
+
+    };
+    //    btn.onmousedown=function(){//鼠标按下
+    //        alert("ee")
+    //    };
+    //    btn.onkeydown=function(){
+    //        alert("onkeydown")
+    //    }
+
+</script>
+</body>
+</html>

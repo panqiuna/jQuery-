@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+</head>
+<body>
+<p></p>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    //
+    $("p[id][class]")//即有id也有类选择器
+    $("p[class*=3]")//匹配类名中包含3的p元素
+    $("p[class^=y]")//匹配类名中包含y开头的p元素
+    $("p[class$=4]")//匹配类名中结尾的p元素
+    $("p[class^=3][class$=3]")//匹配开头是3 结尾是4的p元素
+
+    $("p[class]")
+</script>
+</body>
+</html>

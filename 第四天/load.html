@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>load</title>
+</head>
+<h3>这是个首页</h3>
+<a href="javascript:;" id="news">新闻</a>
+<a href="javascript:;" id="play">娱乐</a>
+
+<div id="view"></div>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<!--<script type="text/javascript" src="../js/jquery-migrate.min.js"></script>-->
+<script>
+    //load 把外部的文件引入进来
+    $(function () {//请求页面地址 回调一个回调函数
+        $("#news").click(function () {
+
+            $("#view").load("news.html", function (res) {
+                console.log(res);
+            })
+        });
+        $("#play").click(function () {
+            $("#view").load("play.html", function (res) {
+                console.log(res);
+            })
+        })
+    })
+</script>
+</body>
+</html>

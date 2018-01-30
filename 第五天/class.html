@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>class</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: aqua;
+            border-radius: 3px;
+        }
+        #active1{
+            width: 300px;
+            height: 300px;
+            background: fuchsia;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击切换</button>
+<div id="div1"></div>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    //hasClass//检测
+    //addClass//增加
+    //removerClass//移除
+//    toggleClass的整合方法是 addClass//增加 removerClass//移除
+$(function(){
+    $("#btn").click(function(){
+        if( $("#div1").hasClass("active")){
+            $("#div1").addClass("active1")
+        }else{
+            $("#div1").removeClass("active")
+        }
+
+
+    })
+})
+
+</script>
+</body>
+</html>

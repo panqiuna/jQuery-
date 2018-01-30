@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>搜索框</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        #list {
+            margin-left: 30px;
+            width: 200px;
+            display: none;
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+搜索框: <input type="text" id="search"/>
+<ul id="list">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+<h4>1111</h4>
+<h4>1111</h4>
+<h4>1111</h4>
+<h4>1111</h4>
+<script>
+    var list = document.getElementById("list");
+    var lis = list.getElementsByTagName("li");
+    document.body.onkeydown = function (e) {
+        e = e || window.event;
+        var tar = e.target || e.scrElement;
+        console.log(this.id);
+        if (tar.parentNode === list || tar.id === 'search') {
+            list.style.display = 'block';
+        } else {
+            list.style.display = "none";
+        }
+
+    }
+</script>
+</body>
+</html>

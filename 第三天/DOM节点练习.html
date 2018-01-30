@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 130px;
+            margin: 30px auto;
+        }
+
+        ul a {
+            border: 1px solid #b6a7ff;
+            background: #ababab;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        #list {
+            float: left;
+            width: 170px;
+            line-height: 30px;
+            border: 1px solid black;
+            border-top: none;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    搜索： <input type="text" id="ipn"/>
+    <ul id="list">
+        <li>123 <a href="###">X</a></li>
+        <li>234 <a href="###">X</a></li>
+        <li>345 <a href="###">X</a></li>
+        <li>456 <a href="###">X</a></li>
+    </ul>
+    <button id="btn">清空列表</button>
+    <button id="btn1">撤回删除</button>
+</div>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    $(function () {
+        $("#ipn").on("keydown", function (e) {
+            if (e.keyCode === 13) {
+                var val = $(this).val();
+                if (/^\s$/.test(val)) return;
+//                if (val) {
+                var $li = $("<li>" + val + "<a href='###'> X </a>" + "</li>");
+                $li.appendTo("#list");
+                $(this).val("");//清除空格
+                bindRemove();
+//               }
+            }
+        });
+        //移除
+        function bindRemove() {
+            $("#list a").click(function () {
+                $(this).parent().remove()
+            });
+
+            $("#btn").click(function () {
+                $("li").remove()
+
+            });
+        }
+
+        bindRemove();
+//        $("#btn").click(function () {
+//
+//            $("li").remove()
+//        });
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表单选择</title>
+</head>
+<body>
+<form id="form">
+    <input type="text"/>//
+    <input type="number"/>
+    <input type="password"/>
+    <input type="email"/>
+    <input type="radio"/>
+    <input type="checkbox"/>
+    <input type="button"/>
+    <input type="file"/>
+    <input type="color"/>
+    <input type="submit"/>
+    <select name="" id="select"></select>
+</form>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    $(function(){
+        //表单对象选择器
+        $("input:text")
+        $("input:password"); //有空格代表所有后代元素
+        $("#form :password");//某个表单
+    })
+    //表单过滤
+   //enabled可用的表单元素
+    //disable 被禁用的表单元素
+    //checked表单被选中
+    //
+    $("select: select")//匹配被选中的元素
+
+</script>
+</body>
+</html>

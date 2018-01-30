@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+    <style>
+
+        #outer {
+            width: 400px;
+            height: 400px;
+            margin: 30px auto;
+            padding: 50px;
+            box-sizing: border-box;
+            background: #d71fff;
+        }
+
+        #inner {
+            width: 300px;
+            height: 300px;
+            padding: 50px;
+            box-sizing: border-box;
+            background: #9c80c6;
+        }
+
+        #center {
+            width: 200px;
+            height: 200px;
+            background: #31e53e;
+        }
+
+        /*#ids{*/
+        /*width: 300px;*/
+        /*height: 300px;*/
+        /*border: 1px solid #11b1ec;*/
+        /*overflow: scroll;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<!--<button id="btn">点击按钮</button>-->
+<!--<div id="ids">点击</div>-->
+
+
+<!--3-->
+<!--<a href="http://www.baidu.com" id="link">跳转页面</a>-->
+<!--在属性名后加javacsript:;-->
+<div id="outer">
+    <div id="inner">
+        <div id="center"></div>
+    </div>
+
+</div>
+
+
+<script>
+    /*事件对象：
+     1.//当事件触发的时候 浏览器默认会为处理函数传递的一个形参
+     //事件对象：是一个对象数据类型的值 ，存储着事件相关信息
+     //对象数据类型   keycode键码值的属性  key是键
+     console.log(e.type);//事件类型
+     e = e || window.event;//解决兼容ie浏览器
+     可以直接用window.event
+
+     * */
+    //    var btn = document.getElementById("btn");
+    //
+    //    //1.同上1
+    //    btn.onclick = function (e) {
+    ////        e = e || window.event;//解决兼容性ie浏览器
+    ////        console.log(window.event);//ie8-6以下用
+    //        console.log(e);
+    ////        console.log(e.type);//事件类型
+    ////        console.log(e.target);
+    //    }
+    //
+
+
+    /*事件对象信息
+     正对于左上角
+     console.log(e.clientX);//鼠标距离窗口的x轴坐标（到y轴的距离）
+     console.log(e.clientY);//鼠标距离窗口的y轴坐标（到x轴的距离）
+     //页面
+     console.log(e.pageX);//页面的边界  窗口距离+滚动条移动的距离=pageX
+
+     e=e||window.event;//事件对象兼容
+     e.target= e.target|| e.srcElement;//事件源兼容 （事件绑定的是事件源）
+     console.log(e.target);//??事件源  导致事件触发的元素
+     console.log(e.srcElement === btn);//ie事件源
+     scrollTop:纵向滚动条
+     疑问点：target？？？？
+     * */
+    //    var ids=document.getElementById("btn");
+    //    ids.onclick=function(e){
+    //        e=e||window.event;//事件对象兼容
+    //        e.target= e.target|| e.srcElement;//事件源兼容 （事件绑定的是事件源）
+    //        console.log(e.target);//??事件源  导致事件触发的元素
+    //        console.log(e.srcElement === btn);//ie情况下 事件源
+    //        console.log(e.clientX);//鼠标距离窗口的x轴坐标（到y轴的距离）
+    //        console.log(e.clientY);//鼠标距离窗口的y轴坐标（到x轴的距离）
+    ////        console.log("pageX"+e.pageX);//鼠标距html页面x轴坐标
+    ////        //移动页面时窗口不变
+    ////        console.log("pageY"+e.pageY);//鼠标距html页面y轴坐标
+    ////        //横向滚动条滚出去的兼容的距离
+    ////         var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+    ////        //纵向滚动条滚出去的兼容距离
+    ////        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+    ////
+    //
+    //        console.log(e.screenX);
+    //        console.log(e.screenY);// 左上角 局屏幕的距离
+    //        //针对当前屏幕的左上角坐标  低版本有兼容性
+    //        console.log(e.offsetX);//当前屏幕距X轴的距离
+    //        console.log(e.offsetY);//当前屏幕距y轴的距离
+    //
+    //    }
+
+    ////////////////////////////////
+
+
+    /*3.
+     *  e.preventDefault();//阻止默认行为
+     *  阻止页面跳转
+     *  return false;也可以阻止默认行为
+     *  在属性名后加javacsript:;也可以阻止默认行为
+     * */
+
+    //    var link = document.getElementById("link");
+    //    link.onclick = function (e) {
+    //        alert("113");
+    //        e = e || window.event;
+    //        e.preventDefault();//阻止默认行为
+    //        e.returnValue = false;
+    //        //兼容写法
+    //        e.preventDefault() ? e.preventDefault() : e.returnValue = false;
+    //        console.log(153);
+    //    }
+    //
+    document.onclick = function () {
+        console.log(document);
+    };
+    //    document.body.onclick=function(){
+    //        console.log(body);
+    //    };
+    center.onclick = function (e) {
+//        e=e|| window.event;
+//        e.stopPropagation();//阻止冒泡传播
+//        e.cancelBubble=true;//ie上阻止冒泡传播
+//        e.stopPropagation()? e.stopPropagation(): e.cancelBubble=true;
+        console.log(center);
+    };
+    inner.onclick = function () {
+        console.log(inner);
+    };
+    outer.onclick = function () {
+        console.log(outer);
+    };
+
+</script>
+</body>
+</html>

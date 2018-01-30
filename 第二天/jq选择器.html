@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jq选择器</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: aqua;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">nnnnnnn</div>
+<ul id="list">
+    <li>11</li>
+    <li class="li2">55</li>
+    <li class="li3">55</li>
+    <span class="sp1">qq</span>
+    <span>nn</span>
+</ul>
+<ul>
+    <li>sD</li>
+    <li>Df</li>
+    <li>Dc</li>
+    <li>Df</li>
+</ul>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript">
+    /*基本选择器
+     id选择器 获取当前元素
+
+     * */
+    //    $("#div1").css("background","pink");// id选择器 加引号是为了以防为变量
+    //    $('.div1').css('background','red');//类名选择器
+    //    $('div').css("background","blue");//标签选择器
+    //    console.log($('*'));//通配符选择器（获取全部）
+    //    console.log($(".li2,span,.li3"));//群组选择器
+    //    console.log($('.123'));//指所有类名
+    //    console.log($("li.li"));//得到一个
+    //    console.log($(".li2+"));//获取他相邻的元素
+    //    console.log($(".li3+span"));//
+    //    console.log($(".li3~"));//
+    //    console.log($(".li3~span"));//后跟着的所有同辈元素
+
+    //层次选择器
+    //    console.log($("#list span"));//后代选择器
+    //    console.log($("#list span .sp1").css("color","red"));
+    //
+    //    console.log($("#list>span"));//子代选择器
+    //    console.log($("#list>span .sp1"));
+    //    console.log($("#list>.li2"));
+
+    ////过滤器  (过滤的是获取集合中的元素)
+    //    console.log($("ul li:first").css("background","red"));
+    //    console.log($("ul li:last").css("background","bisque"));
+    //console.log($("ul li:eq(2)").css("background","red"));//eq（2）索引为二的
+    //console.log($("ul li:lt(2)").css("background","pink"));//lt（2）索引小于二的
+//    console.log($("ul li:gt(1)").css("background", "yellow"));//gt（2）
+    //console.log($("ul li:not(2)").css("background","blue"));
+    //console.log($("ul li:odd(2)").css("background","aqua"));//基数
+    //console.log($("ul li:even(2)").css("background","deeppink"));//偶
+    //子元素过滤器
+    //    console.log($("ul li:first-child").css("background","aqua"));//ul中第一个子节点
+    //    console.log($("ul li:last-child").css("background","red"));//ul最后一个子节点
+    //    console.log($("ul li:nth-child(3)").css("background","pink"));//元素中指定的自己节点
+    //    console.log($("ul li:nth-child(2n+1)").css("background","red"));//基数
+    //    console.log($("ul li:nth-child(2n)").css("background","aqua"));//偶
+    //    console.log($("ul li:nth-child(3n)").css("background","blue"));//基数
+</script>
+</body>
+</html>

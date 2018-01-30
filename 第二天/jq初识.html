@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jq初识</title>
+</head>
+<body>
+<div id="div1" style="width: 200px;height: 200px;background: salmon"></div>
+<p>WAESFG</p>
+
+<p>WAESFG</p>
+
+<p>WAESFG</p>
+<script type="text/javascript" src="../../js/jquery%20.js"></script>
+<script type="text/javascript">
+
+    /*jquery:一个前端js库，提供了强大 强大的选择器 DOM方法 ajax完整封装 事件动画效果  工具方法
+     * jQuery兼容性
+     * jQuery版本1.0  2.0  3.0
+     * jq 1.0兼容6-8
+     * jq 2.0 不兼容ie6，7，8（针对移动端）目前zepto
+     * jq 3.0 不兼容 IE 6-8 移除一些特性 增加一些新特性
+     * 引入
+     * $ jquery  都指向jq的构造函数 无new构造实例
+     * jQuery自身属性的方法
+     *
+     *
+     * jQuery返回的方法的是他new的原型的方法实例
+     * 用new调用自己的原型就会死循环
+     * */
+    window.jQuery = window.$ = jQuery;//将js构造函数分别载入全局属性jQuery、$上供全局使用
+    //jQuery的自身属性方法
+    $.each([11, 34], function (ind, item) {
+        console.log(item);
+    });
+    //jQuery 原型的方法  无new构造实例  生成jq对象 才可以调用原型方法
+    //    console.log($("#div1"), jquery);
+    //    console.log($("#div1").addClass("div1"));
+    //    console.log(jQuery("#div").addClass("div1"));
+    //    var div1=document.getElementById("div1");
+    //    console.dir(div1);//原生
+
+    console.log( $('#div1').addClass('div1').html('nihao').css('color', 'red','font-size','20px'));
+
+
+    /////////////////////////////////
+    //获取上下文只能用document
+    //    jQuery需要借助构造器传递实例
+    // jQuery.fn.init 就是jq对象的构造器（js）
+    //    console.log($.("#div1"));//直接返回的是return.new.jQuery.fn
+    //jq 对象构造器 负责在内部 构造就是实例
+    //  通过索引可以得到原型对象
+
+    //获取什么就返回什么
+
+    $(document).ready(function () {
+        $('p').click(function () {
+            $(this).hide();
+        })
+    })
+</script>
+</body>
+</html>

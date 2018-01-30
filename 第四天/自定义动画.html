@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自定义动画</title>
+    <style>
+        #div1 {
+
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+
+        #div1 {
+            position: absolute;
+            left: 0px;
+            top: 40px;
+        }
+    </style>
+</head>
+<body>
+<button id="left">left</button>
+<button id="right">right</button>
+<button id="pause">暂停</button>
+<button id="finish">终止</button>
+<button id="slide">下拉收起</button>
+<button id="btn1">禁止动画</button>
+<button id="btn2">开启动画</button>
+
+<div id="div1"></div>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery-migrate.min.js"></script>
+<script>
+    //
+    $(function () {
+        var val;
+        $("#btn1").on("click", function () {
+            $.fx.off = true;
+        });
+        $("#btn2").on("click", function () {
+            $.fx.off = false;
+            console.log(btn) ;
+        });
+
+        $("#left").on("click", function () {
+            val = parseFloat($("#div1").css("left"));
+            $("#div1").animate({left: 0}, 400);//0 是返回的距离
+        });
+        $("#right").on("click", function () {
+            val = parseFloat($("#div1").css("left"));
+            $("#div1").animate({left: 400}, 500)
+                    .animate({top: 300}, 500)
+                    .animate({left: 0}, 500)
+                    .animate({top: 50}, 500)
+        })
+    });
+    $("#pause").on("click", function () {
+        $("#div1").stop(true);//暂停
+    });
+    $("#slide").on("click", function () {
+        $("#div1").stop().slideToggle();//终止下滑
+    });
+    $("#finish").on("click",function(){
+        $("#div1").finish();//终止结束
+    });
+    //$("#div1").stop(true)//终止后面所有对列的动画（清除对列动画）
+    //        $("#div1").stop(true，true)终止后面所有队列的动画（跳转到当前动画的目标值）
+    //        $("#div1").finish();//终止动画（跳转到所有动画的最终目标值）
+    //        $("#div").stop().slideToggle();//预防动画累积
+    //        $("#div1").animate(//设置宽高
+    //                {width: 300, height: 300},//[先执行宽度在执行高]
+    //                300,//时间
+    //                "linear", //执行速度
+    //                function () {//
+    //                    console.log("结束了");
+    //                    $("div1").animate({height: 300}, 500, function () {
+    //                        $(this).animate({opacity: 0}, 500);
+    //                    });
+    //                });
+    //整合
+    //        $("#div1").animate({width: 300}, 500)
+    //                .animate({height: 300}, 500)
+    //                .animate({opacity: 0})
+    //    })
+</script>
+</body>
+</html>

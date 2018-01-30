@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>内容过滤器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<!--<div class="empty"></div>-->
+<!--<div>33<span>5555</span></div>-->
+查询：<input type="text" id="inp">
+
+<p><span>00</span></p>
+<ul id="list">
+    <li><span>1</span><span>ppd</span><span>232</span><span>2435</span></li>
+    <li><span>2</span><span>pdg</span><span>3532</span><span>2435</span></li>
+    <li><span>3</span><span>qjf</span><span>3532</span><span>2435</span></li>
+    <li><span>4</span><span>qnjui</span><span>3532</span><span>2435</span></li>
+    <li><span>5</span><span>abc</span><span>135</span><span>2435</span></li>
+    <li><span>6</span><span>qerv</span><span>66</span><span>2435</span></li>
+    <li><span>7</span><span>mg</span><span>233</span><span>2435</span></li>
+</ul>
+<script type="text/javascript" src="../../../闭包文件/jquery.js"></script>
+<script>
+    //
+    $(function () {
+//        console.log($("div:empty").css({
+//            width:"100px",
+//            height:"100px",
+//            background:"blue"
+//        }));//指的是文本也是空的 （空格 换行都不属于空元素）
+//        $("div:has(span)").css("color","red");
+//        console.log($("div:parent"));//匹配父级元素
+//
+//
+//        $("#list li:contains(5)");//文本框
+        var $list = $("#list>li");
+//        $list.hide();
+        $("#list>li:contains(2)").show().css("background","aqua");
+        $("#inp").on("input", function () {
+            var val = $(this).val();//输出的文本
+            val = val.replace(/\s/g, "");
+            if (!/^\s*$/.test(val)) {
+                $list.hide().siblings(":contains(" + val + ")").show();//(":contains("+val+")")让val当成内容输出
+            } else {
+                $list.show()
+
+            }
+
+        });
+
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>1.filter-find-children</title>
+</head>
+<body>
+<ul id="oul">
+    <li>p</li>
+    <li>q</li>
+    <li class="g">n</li>
+    <li>i</li>
+    <li>u</li>
+    <li>a</li>
+    <p></p>
+    <p></p>
+    <p></p>
+</ul>
+<script type="text/javascript" src="../../闭包文件/jquery.js"></script>
+<script>
+   //find 在后代元素中进行查找  children 获取所有子元素  filter 在指定的元素中进行 过滤
+   console.log($('#oul').find('.g'));//从最外层容器向里查找
+    //filter
+   console.log($('#oul li,g').filter('g'));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+<form>
+    <div>
+        <label for="name">用户名:</label>
+        <input typr="text" id="name" name="username">
+    </div>
+    <div>
+        <lable for="zh">账号：</lable>
+        <input type="text" id="zh" name="username"/>
+    </div>
+    <div>
+        <label for="mm">登录密码:</label>
+        <input type="text" id="mm" name="username"/>
+    </div>
+    <button id="btn">点击登录</button>
+</form>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+
+
+    $(function () {
+        $("#btn").click(function () {
+//                console.log($("form").serialize());//序列化 查询字符
+            console.log($("form").serializeArray());//序列化 数组
+        });
+        $("#btn").on("click", function () {
+            var val = $(this).val();
+            if (/^\s*$/.test(val))return;
+            var $lis = $("<div>+<input type='text'/>+val+</div>");
+            $lis.appendTo("#name");
+
+//            $(this).val("");//清空格
+
+        })
+    });
+    ////    console.log($("div").lenght);//div的长度
+    //    console.log($div1.lenght);//length容易被修改 不安全  lenght自己添加包装的
+    //    //获取jq对象的长度
+    //    console.log($("div").size);//判断个数
+    //    //$().serialize();//序列化 查询字符串
+    //    //$().serializeArray();//序列化 查询数组
+    //    console.log($("div")[0]);//根据索引得到div元素
+    //    console.log($("div").get(0));//
+    //    console.log($("div").eq(0));//根据索引获取指定的div元素
+</script>
+</body>
+</html>

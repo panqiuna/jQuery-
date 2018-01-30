@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>属性</title>
+    <style>
+        #div2 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h3></h3>
+
+<p>1111</p>
+
+<button id="btn" hello="zf">+</button>
+<input type="number" id="inp"/>
+<button id="btn1">-</button>
+<br/>
+增加宽度：<input type="checkbox" id="radio"/>
+增加高度：<input type="checkbox" id="radio1"/>
+设置颜色：<input type="color" id="color"/>
+
+<div id="div2"></div>
+
+<button id="btn2">快进</button>
+<div id="div1"></div>
+<script type="text/javascript" src="../../../闭包文件/jquery.js"></script>
+<script>
+    $(function () {
+
+        $("#radio").change(function () {
+            var flag = $(this).prop("checked");
+            if (flag) {
+                $("#div2").width(300)
+            } else {
+                $("#div2").width(100)
+            }
+        });
+        $("#radio1").change(function () {
+            var flag = $(this).prop("checked");
+            if (flag) {
+                $("#div2").height(300)
+            } else {
+                $("#div2").height(100)
+            }
+        });
+        $("#div2").css("background", $("#color").val());
+        $("#color").change(function () {
+            var col = $(this).val();
+            console.log(col);
+            $("body").css("background", col);
+            $('body').css('background', col);
+        });
+    });
+
+    //    //HTML text val-->
+    //    //text :不能识别标签-->
+    //    $(function(){-->
+    //        //HTML属性是展现结构-->
+    //        //DOM元素属性？？？-->
+    //        //attr prop 获取属性-->
+    //        //获取 自定义属性-->
+    //        console.log($("#btn").attr("id"));//获取操作属性-->
+    //        console.log($("#btn").attr("hello"));//操作自定义属性-->
+    //        //设置-->
+    //        $("#btn").attr("hello", "vuejs");//-->
+    //-->
+    //        console.log($("#btn").prop("hello", "vuejs"));//操作共有的属性-->
+    //    //固定属性-->
+    //        $("#btn").prop("hello","vuejs");//-->
+    //        $("#btn").prop("hello");//操作公有的属性-->
+    //-->
+    //-->
+    ////        var val=$("inp").val()-->
+    ////        $("p").html("<h3>nihao</h3>")-->
+    //        $("p").html(function(n,cur){//函数的作用主要是调用-->
+    //            return "<h3>"+cur+"</h3>"-->
+    //        });-->
+    ////        console.log($("#inp").val());-->////        $("#inp").val(333)//input里的值-->
+
+
+    //        $("#btn").click(function(){-->
+    //    $("#inp").val(function(n,cur){//不传参时不输出值 val  表单的值-->
+    //        return +cur+10-->
+    //    })-->
+    //});-->
+    //        $("#btn1").click(function(){-->
+    //            $("#inp").val(function(n,cur){//不传参时不输出值 val  表单的值-->
+    //                console.log(arguments);-->
+    //                return +cur-10-->
+    //            })-->
+    //        });-->
+    //-->
+    //    })-->
+</script>
+</body>
+</html>

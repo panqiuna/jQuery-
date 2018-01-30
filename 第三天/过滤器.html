@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*div{*/
+        /*width: 100px;*/
+        /*height: 100px;*/
+        /*background:pink;*/
+        /*}*/
+        #top {
+            margin: 40px auto;
+            border: 1px solid black;
+            width: 400px;
+            height: 300px;
+            font-size: 16px;
+        }
+
+        ul {
+            overflow: hidden;
+            list-style: none;
+        }
+
+        #top li {
+            float: left;
+            padding: 10px;
+            line-height: 40px;
+        }
+
+        #top p {
+           text-align: center;
+        }
+        #btn{
+            border:1px solid #11b1ec;
+            width: 80px;
+            margin: auto;
+            line-height: 30px;
+        }
+        .col{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--<button id="btn">隐藏</button>-->
+<!--<div id="div1"></div>-->
+
+<div id="top">
+    <p>品牌：</p>
+    <ul id="list">
+        <li>Huawei</li>
+        <li>MIUI小米</li>
+        <li>Meizu魅族</li>
+        <li>oppo</li>
+        <li>Apple苹果</li>
+        <li>honor荣耀</li>
+        <li>sansung三星</li>
+        <li>vivo</li>
+        <li>letv乐视</li>
+        <li>Coolpad酷派</li>
+    </ul>
+    <p id="btn">更多</p>
+</div>
+
+
+<script type="text/javascript" src="../../../闭包文件/jquery.js"></script>
+<script>
+    //:animated 动画  :visible 显示  :hidden//隐藏
+    //用is判断是否是隐藏的
+
+
+    //    $(function () {
+    //        var $div1=$("#div1")
+    //        console.log($("div:visible"));
+    //        console.log($(":hidden").is(":visible"));//判断是否隐藏
+    //        $("#btn").click(function(){
+    //            if($div1.is(":hidden")){//判断是否隐藏
+    ////                $div1.show();//显示
+    ////                console.log($("#div1"));
+    ////            }else{
+    ////                $div1.hide();//隐藏
+    //            }
+    //            $div1.toggle(400);//show hide显示隐藏
+    //        })
+    //
+    //    })
+
+    //用过滤让它的索引大于5的隐藏
+   $(function(){
+       var $list=$("#list>li");
+//       var $val=$(this).val();
+       var $lis=$("#list li:gt(4)");
+       $lis.hide();
+       $("#btn").click(function(){
+           $lis.toggle();//隐藏出现
+           if($lis.is(":hidden")){
+               $list.removeClass("col");
+               $(this).html("更多")
+           }else{
+
+               $list.siblings(":contains(MIUI小米),:contains(oppo)").addClass("col");
+               $(this).html("收起")
+           }
+       })
+   })
+
+</script>
+</body>
+</html>

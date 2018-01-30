@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>dom获取</title>
+</head>
+<body>
+<ul id="list">
+    <li class="conter">11</li>
+    <li>22324</li>
+    <li class="li3">33</li>
+    <li class="conter">44</li>
+    <li>5554</li>
+</ul>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    //$(function(){
+    ////    console.log($("#list")[0].children);//子节点
+    //    //获取所有子节点
+    ////    console.log($("#list").children());
+    ////    //获取父亲
+    ////    console.log($("li.li3").parent());
+    ////    //获取下一个弟弟
+    ////    console.log($("li.li3").next());
+    ////    //获取所有弟弟元素
+    ////    console.log($("li.li3").nextAll());
+    ////    //获取上一个哥哥元素
+    ////    console.log($("li.li3").prev());
+    ////    //获取所有哥哥元素
+    ////    console.log($("li.li3").prevAll());
+    ////    //获取所有兄弟元素
+    ////    console.log($("li.li3").siblings());
+    //    //得到所有父辈元素
+    //    console.log($("li.li3").parents('body'))
+    //
+    //})
+
+//    $("#list").html("hello world").show(1000).css("color", "pink").css("font-size", "20px");
+    $(function () {
+        $(".conter").html("你好！pp");
+        $("#list").click(function () {
+            $(this).addClass("curcol")
+                    .next(".conter").addClass("display", "black");
+        })
+    })
+
+
+</script>
+</body>
+</html>

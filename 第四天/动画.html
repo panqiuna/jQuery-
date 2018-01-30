@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3.动画</title>
+    <style>
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<button id="bnt">点击</button>
+
+<div id="div1"></div>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery-migrate.min.js"></script>
+<script>
+    //如果显示就隐藏  如果隐藏就显示
+        $(function(){
+    //        $("#btn").on("click",function(){
+    //            if($("#btn").is(":visible")){
+    //                $("#div1").hide(300,"linear",function(){
+    //                    console.log(("点击显示"));
+    //                })
+    //                $("#div1").show(600,"linear",function(){
+    //                    console.log(("点击隐藏"));
+    //                    $(this).css("background","blue")
+    //                })
+    //            }
+    //        })
+
+    //toggle==>hide show
+//    $("#btn").on("click", function () {//显示隐藏都是300 都是匀速
+//        $("#div1").toggle(300, "linear", function () {
+//            console.log(("动画结束"));
+//        })
+//    })
+
+//    $("#btn").on("click", function () {
+//        if ($("#div1").is(":visible")) {//如果显示就让他收起
+//            $("#div").slideUp(1300, "linear", function () {
+//                console.log("slideUp");//动画结束触发
+//            })
+//        } else {
+//            $("#div").slideDown(1300, "linear", function () {
+//                console.log("slideDown");//动画结束触发
+//            })
+//        }
+//    })
+    //slideDown整合写法slideUp
+    $("#btn").on("click", function () {
+        $("#div1").slideToggle(1300, "linear", function () {
+            console.log("结束动画");
+        })
+    });
+
+
+            //
+      $("#btn").on("click",function(){
+          if($("#div1").is(":visible")){
+              $("#div1").fadeIn(300,"linear",function(){
+                  console.log("fadeIn");
+              })
+          }else{
+              $("#div1").fadeIn(300,"linear",function(){
+                  console.log("fadeIn");
+              })
+          }
+      });
+
+            //整合
+           $("#bnt").on("click",function(){
+               $("#div1").fadeToggle(300,"linear",function(){
+                   console.log("结束了");
+
+               })
+           });
+//fadeTo
+//            ？？？？？
+    })
+</script>
+</body>
+</html>

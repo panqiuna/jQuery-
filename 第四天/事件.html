@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击</button>
+<div id="div1"></div>
+<input type="text" id="pane"/>
+
+<input type="text" id="pane1"/>
+
+<!--<ul id="list">-->
+    <!--<li>11</li>-->
+    <!--<li>22</li>-->
+    <!--<li>33</li>-->
+    <!--<li>44</li>-->
+<!--</ul>-->
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery-migrate.min.js"></script>
+<script>
+    //事件
+/*on主要用来绑定事件
+bind绑定事件
+同一事件可以多次绑定事件
+
+
+on可以给多个事件绑定同一个处理程序  也可以链式写法
+
+
+* */
+
+    $(function(){
+//        $("#pane1").focusin(function(){//内部元素点击焦点获取
+//            console.log("focusin");
+//            $("#pane1") .css("background","red")//点击这个第个二变成pink
+//        })
+//        $("#pane1").focusout(function(){//获取外部元素事件
+//            console.log("focusout");
+//                   $("#pane1") .css("background","pink")//点击这个时变成red
+//        });
+
+//    $("#ipn").select(function(){//复制选中的文字
+//        document.execCommand("copy")
+//    })
+
+
+//    }
+////        onmuseenter与onmuseleave的整合
+//        $("#btn").onmouseenter(function(){
+//            console.log("onmosueenter");
+//        }).onmuseleave(function(){
+//            console.log("onmuseleave");
+//        });
+//
+//        $("#btn").hover(function(){
+//
+//
+////        $("#btn").on("myEvent",function(){})
+////        console.log("myEvent");
+////        $("#list").trigger("click");//点击list让li触发    .trigger自己让它触发
+//    })
+    //之前本本 1.7 版本之前 点击事件的整合  新版本需要加入文本
+//    $("#btn").toggle(function(){
+//        $("#div1").hide()
+//    }).toggle(function(){
+//        $("#div1").show();
+//    })
+//
+    //触发事件
+//    $("#list").on("click",function(){
+//        console.log(a, b);
+//        alert("op say:yidingqu")
+//    });
+//    $("#list").on("myEvent",function(){
+//
+//    })
+
+
+    //click常用事件可以简写  链式写法
+//    $("btn").click(function(){
+//        console.log("click");
+//    }).onmouseover(function(){
+//        console.log("over");
+//    }).onmouseout(function(){
+//        console.log("out");
+//    });//连缀写法
+
+//    $("#list").on("click","li",{id:1,name:"p"}, function(){//事件委托  将事件li委托给list    {}避免写全局
+
+//    });
+    //bind直接将事件绑定给元素   事件类型 数据 处理函数  事件处理对象 (不能实现事件委托)
+//    $("btn").bind("click",{say:"nihao"},function(){//只能把事件绑定给当前元素
+//        console.log("bind");
+//    });//live事件委托 on与bind用on替代了bind事
+    //事件委托   delegate是事件的优化  可以委托给任意 祖辈元素
+//    setTimeout(function(){
+//        $("#list").append("<p>flkdsjgnkf</p>");
+//        $("#list").append("<p>flkdsjgnkf</p>");
+//    },1000);
+//    $("list").delegate("li","click",function(){//只有三个形参
+//        console.log("click");
+//    });
+//    $("#btn").on("click,mouseover",function(){
+//
+//    });
+                //移除委托事件 直接在click后面加要移除的元素？？？？？
+//    $("#list").off("click","li");
+//    $("#btn").off("click");//移除事件（click）  无论什么事件都可以移除
+//    $("#btn").off();//移除所有事件
+//    $("#btn").off("click",fn3);//移除指定的“fn3”事件[移除click事件中的某一个 处理程序]
+//    $("#btn").off(".event");//根据命名空间移除多个不同的类型处理程序  [在原有的事件中添加.event]
+//    //unbind  bind
+
+    //移除delegate绑定的事件
+//    $("#list").undelegate("li","click");
+    //undelegate 3.0版本以弃用
+    //live 事件委托 任意  委托给document  只能给低版本 已经被废除的方法
+    //on对bind delegate live 整一统合
+
+
+
+//    一次性事件  只能点击执行一次
+    $("#btn").one("click",function(){//绑定的还是on事件
+        console.log("one");
+    })
+    });
+</script>
+</body>
+</html>

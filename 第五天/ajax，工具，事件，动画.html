@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ajax，工具，事件，动画</title>
+</head>
+<body>
+<p class="p1"></p>
+
+<p></p>
+
+<p class="p1"></p>
+
+<p></p>
+
+<p class="p1"></p>
+
+<p class="p1"></p>
+
+<p class="p1"></p>
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script>
+    //ajax
+    //    $(function () {
+    //        $.ajax({
+    //            url: "data.txt?_=" + Math.random(),
+    //            type: "get",
+    //            dataType: "text",//支持text html jsonp
+    //            success: function (res) {
+    //                console.log(res);
+    //            }
+    //        })
+    //    })
+    //事件
+
+    //    $("#box").on("click", function () {//绑定事件  优点 可以写两个值 不会影响
+    //
+    //    })
+
+    //工具
+
+    //jquery.browser.version
+    //each:jquery中有两个each(也有两个map，和each的原理一样 只是可以支持返回值)
+    //    $("div").each(function (index, item) {//循环选择器获取到的结果div
+    //        console.log(item);
+    //    })
+    //    $.each([12, 13, 14], function (index, item) {//循环数组 类数组 对象中的每一项
+    //        console.log(item);
+    //    })
+    //    $.each(document.getElementsByTagName("*"), function (index, item) {
+    //        console.log(item);
+    //    });
+
+    //grep;过滤
+
+    //    var arr = [1, 2, 3, 4, 5];
+    //   var newAr= $.grep(arr, function (item,i) {
+    ////        return item > 3;//item大于三的
+    ////       return $(item).hasClass("p1");//判断是否存在“p1”
+    //       return /\bp1\b/g.test(item,className);//加边界 /\bp1\b/g替换时需要加\g
+    //    }，true);//true作为排除条件
+    //    console.log(arr);
+    //    console.log(newAr);//原数组没有影响
+
+    //    $.map() 修改
+    //var arr =[1,2,3];
+    //    var newAry= $.map(function(item,n){
+    //        return item *2;
+    //    })
+    //    console.log(newAry);
+    //    $.map(function(item,n){
+    //        return item;
+    //    })
+
+    //
+
+    //    $.makeArray==>listToArry()类数组转化为数组  他是个对象
+    //    var obj={
+    //        0:"aa",
+    //        1:"bb",
+    //        3:"pp",
+    //        4:"nn",
+    //        lenght:4
+    //    };
+    //    var arr= $.makeArray(document.getElementsByTagName("p"));
+    //    var arr= $.makeArray(obj);
+
+    //toAarray 将jq对象元素转化为数组集合
+    //    console.log($("p").toArray());
+    //$.inArray查找指定字符在数组中的位置
+    //        console.log($.inArray("zf", [1, 2, 3,4,5,6,7]));
+
+
+    // return $("p").hasClass("p1");
+//inArray检测原生是否有p1元素
+
+    // console.log($.inArray($("p.p1")[2], $("p")));/
+    // /原生检测是否有p1元素  大于或等于-1不存在
+
+    //合并数组
+
+//    var arr = [1, 2, 3, 3, 5, 6];
+//    var arr1 = [1, 3, 4, 6, 5];
+//    $.merge(arr, arr1);//将arr和arr1合并
+//    console.log(arr1);
+//    console.log(arr);//-->[1, 2, 3, 3, 5, 6, 1, 3, 4, 6, 5]
+////    //extend  合并对象   不影响原有的
+////    var obj1 = {name: "p", id: 21};
+////    var obj2 = {name: "q", id: 22};
+////    var obj3 = {};
+////    $.extend(obj1, obj2, obj3);
+////    console.log(obj3);
+////    console.log(obj1);
+////    function extend(obj1, obj2) {
+////        for (var k in obj2) {
+////            obj1[k] = obj2[k]
+////        }
+////        return obj1;
+////    }
+
+    //$.type()检测数据类型
+//    $.type();
+//    $.isEmptyObjct();//检测是否是空对象
+    //$.isPalinObject()   检测是否是普通对象（{} ，object new）
+    // 通过new创建检测的 和{}的对象  是true 其他都是false
+    //$.isFunction();检测是否时函数
+//    $.isArray();//检测是否是数组
+//    $.isNumeric();//是否能够转化为数组
+//    $.isWindow(Window);//检测是否是浏览器
+//        console.log($.browser);//检测版本
+//    $.contains(document.documentElement,document.body);//检测是否是原生的
+//    wd=sdformatter汉化版&rsv_spt=1  get请求时用
+//    window.navigator.userAgent();//原生检测板本
+//    console.log($.browser);//版本
+//    var obj={
+//        name:"wd",
+//        id:2,
+//        age:3
+//    };
+    //拼接序列化
+
+//    console.log($.param(obj));//param序列化key、value
+// 相当于将name和id优化  name=wd&id=2&age=3
+
+
+
+//    function param(obj){
+//        var str="";
+//        for(var k in obj){
+//            str+=k+"="+obj[k]+"&"
+//        }
+//        str=str.slice(0, str.length-1)
+//        return str;
+//    }
+//    console.log(param(obj));
+
+//检测一个函数的是否是空对象
+
+
+//    console.log(emptyObject({name: "zf"}));//-->false
+//        function emptyObject(obj){
+////        var flag=true;
+//        for(var k in obj){
+//            if(obj.hasOwnProperty(k)){
+//                flag=false;
+//            }
+//            return flag;
+//        }
+//    }
+//    console.log($.isPlainObject(obj));//-->true
+    //    console.log($.isFunction(emptyObject));//检测这个函数是否是空对象
+
+//判断一个对象是否有你给出名称的属性或对象
+
+//    function emptyObject(obj){
+//        var flag=true;
+//        for(var k in obj){//k属性值
+//            if(obj.hasOwnProperty(k)){//检测
+//                //hasOwnProperty：是用来判断一个对象是否有你给出名称的属性或对象。不过需要注意的是，此方法无法检查该对象的原型链中是否具有该属性，该属性必须是对象本身的一个成员。
+//                flag=false;
+//            }
+//        }
+//        return flag;
+//    }
+
+
+    //动画
+
+    //$("#box").animate({目标位置集合,运动的总时间，"linear/ease/easeIn/easeOut/easeInout"},function(){})
+    //stop:结束之前正在执行的动画，开启下一个新的动画
+    //    delay:延迟
+    //    fadeIn("淡入")，fadeOut（"淡出"），fadeToggle
+    //    show hide==>toggle
+    //    slideUp ，slideDown，slideToggle
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js对象与jq对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #btn {
+            width: 200px;
+            height: 200px;
+            background: #80c640;
+        }
+    </style>
+</head>
+<body>
+<div id="oDiv"></div>
+<ul id="list">
+    <li>11</li>
+    <li>22</li>
+    <li>33</li>
+</ul>
+<script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript">
+    /*带$符的是jq 不带$是js
+     * */
+    $(function () {
+//        var btn = document.getElementById("btn");
+//        var $btn = $("#btn");
+//        console.log(btn);//js
+//        console.log($btn);//jq
+//        console.log($btn === btn);//jq
+//        console.log($btn[0]);//jq转化为js
+//        console.log($btn.get(0));//jq转化为js对象
+
+//        var list = document.getElementById("list");
+//        var lis = list.getElementsByTagName("li");
+//        setTimeout(function () {
+//            var oLi = document.createElement("li");
+//            oLi.innerHTML = 555;
+//            list.appendChild(oLi);
+////            console.log($("#list>li"));//重新获取时可以保存来了多次使用
+//        }, 1000);
+
+
+        //js对象转化为jq对象  js对象转为jq对象只需要把方法名写了就可以
+//        console.log($(btn));
+
+       // 如何判断jq对象是否存在
+        var $btn = $("#oDiv");
+//        console.log($oDiv);
+        if ($oDiv.length > 0) {
+            $oDiv.addClass('active');
+            console.log(123);
+        }
+
+        console.log(oDiv);
+       console.log($oDiv);
+       console.log($oDiv === oDiv);
+
+
+    })
+</script>
+</body>
+</html>
